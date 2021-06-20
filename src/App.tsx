@@ -1,24 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CategorySelector from './CategorySelector';
 
 function App() {
+  const categories = [
+    {val: 'Shirts', label: 'Shirts'},
+    {val: 'T-Shirts', label: 'T-Shirts'},
+    {val: 'Tops', label: 'Tops'},
+  ]
+
+  const filters = [
+    {val: '92', name: '92'},
+    {val: '91', name: '91'},
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CategorySelector categories={categories} filters={filters} 
+        onChange={(val) => console.log(val)}
+      />
     </div>
   );
 }
